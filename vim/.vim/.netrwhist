@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/smith/Documents/temp/egt/project/helm-infrastructure/lt'
+let g:netrw_dirhist_2='/home/smith/Documents/temp/egt/project/helm-infrastructure/lt/prometheus'
+let g:netrw_dirhist_3='/home/smith/Documents/home/helm-infrastructure/infra/prometheus-operator'
