@@ -1,0 +1,16 @@
+# Manual
+```
+https://help.sonatype.com/repomanager3/formats/helm-repositories
+```
+
+## Upload by HTTP POST
+```
+curl -u <username>:<password> http://<host>:<port>/repository/<repository_name>/ --upload-file mysql-1.4.0.tgz -v
+```
+
+## Configuring Helm Client
+```
+1. helm repo add <helm_repository_name> http://<host>:<port>/repository/<nexus_repository_name>/ --username <username> --password <password>
+2. helm fetch <helm_repository_name>/<chart_name>
+3. helm fetch <helm_repository_name>/<chart_name> --version <chart_version>
+```
