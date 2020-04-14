@@ -1,0 +1,11 @@
+kubectl get events -n kube-system
+
+# ping, telnet
+kubectl run --generator=run-pod/v1 -i --tty busybox --image=busybox --restart=Never -- sh
+
+# curl
+kubectl run --generator=run-pod/v1 -i --tty busybox --image=radial/busyboxplus:curl --restart=Never -- sh
+
+# mysql
+kubectl run mysql -it --rm --image=mysql -- mysql  -h <ip> -P <port> -u <user> -p<password>
+
