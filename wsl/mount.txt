@@ -1,0 +1,1 @@
+udo mount -t drvfs D: /mnt/d

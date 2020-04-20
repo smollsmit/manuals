@@ -1,0 +1,1 @@
+psql -h 10.26.10.101 -p 5432 -U em -d sc--pim--prod -W 

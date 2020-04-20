@@ -1,0 +1,10 @@
+Task  Psql command
+Close conection         \q
+Connect to a database   \c __base_datos__
+List databases          \l
+Show table definition   \d __table__
+Listar Schemas          \dn
+List functions          \df
+List views              \dv
+Show function SQL code  \df+ __function
+Pretty-format           \x

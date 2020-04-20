@@ -1,0 +1,4 @@
+message: *kubelet* && message: *orphaned*
+application_name: sshd && message: "session opened for user"
+application_name: sshd && message: "authentication failures"
+

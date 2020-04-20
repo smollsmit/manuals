@@ -1,0 +1,3 @@
+helm repo add <helm_repository_name> http://<host>:<port>/repository/<nexus_repository_name>/ --username <username> --password <password>
+helm repo add --ca-file ~/Documents/global/automation/ansible/shared/certs/rootca.crt --username= --password= em https://nexus.epicenter.loc/repository/em/
+

@@ -1,0 +1,3 @@
+# get pods on nodes
+kubectl get pods --sort-by=.metadata.name -o wide --all-namespaces | grep ep01kw43d
+

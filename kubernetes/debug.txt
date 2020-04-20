@@ -9,3 +9,5 @@ kubectl run --generator=run-pod/v1 -i --tty busybox --image=radial/busyboxplus:c
 # mysql
 kubectl run mysql -it --rm --image=mysql -- mysql  -h <ip> -P <port> -u <user> -p<password>
 
+kubectl run --generator=run-pod/v1 -i --tty busybox --image=postgres:11.7 --restart=Never -- sh
+
