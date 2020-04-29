@@ -1,0 +1,4 @@
+vim /etc/cloud/cloud.cfg
+vim /etc/netplan/10-home-net.yaml
+hostnamectl set-hostname hm01ceph11i.hm.loc
+

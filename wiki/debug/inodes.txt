@@ -1,0 +1,2 @@
+for ii in $(find -maxdepth 1 -type d); do echo -e "${ii}\t$(find "${ii}" -type l -o -type d -o -type f | wc -l)"; done | sort -n -k 2 | column -t
+

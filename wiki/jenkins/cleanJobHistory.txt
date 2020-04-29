@@ -1,0 +1,5 @@
+item = Jenkins.instance.getItemByFullName("11.07_SC_PIM_Deploy")
+item.builds.each() { build ->
+  build.delete()
+}
+item.updateNextBuildNumber(1)
