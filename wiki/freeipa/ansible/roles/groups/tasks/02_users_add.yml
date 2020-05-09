@@ -1,0 +1,25 @@
+
+# ---------- Create Users and add to groups
+- name: Create user "{{ item.name }}"
+  ipauser:
+    ipaadmin_password: "{{ ipa.admin.pass }}"
+    name: "{{ item.name }}"
+    first: "{{ item.first }}"
+    last: "{{ item.last }}"
+    email: "{{ item.name }}@{{ project.domain }}"
+    passwordexpiration: "2023-01-19 23:59:59"
+    password: "{{ lookup('password', 'credentials/' + item.name + '/password chars=ascii_letters,digits,hexdigits length=16') }}"
+    update_password: always
+
+
+# ---------- Add user to group
+- name: Add user "{{ item.name }}" to group "{{ group }}"
+  ipagroup:
+    ipaadmin_password: "{{ ipa.admin.pass }}"
+    name: "{{ group }}"
+    action: member
+    user:
+      - "{{ item.name }}"
+  loop: "{{ item.groups | default() }}"
+  loop_control:
+    loop_var: group

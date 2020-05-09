@@ -1,0 +1,18 @@
+
+# ---------- Include variables 
+- name: Include related variables
+  include_vars:
+    dir: vars
+    files_matching: "main.yml"
+
+
+# ---------- Create Groups 
+- include_tasks: 01_groups_add.yml
+  loop: "{{ ipagroups }}"
+  when: item.present
+  
+
+# ---------- Create Users
+- include_tasks: 02_users_add.yml
+  loop: "{{ ipausers }}"
+  when: item.present

@@ -1,0 +1,52 @@
+ipagroups:
+  - { name: "devops",                       id: "", present: true}
+  - { name: "integrations",                 id: "", present: true}
+  - { name: "{{ project.prefix }}_devops",  id: "", present: true}
+  - { name: "{{ project.prefix }}_dev",     id: "", present: true}
+  - { name: "{{ project.prefix }}_back",    id: "", present: true}
+  - { name: "{{ project.prefix }}_front",   id: "", present: true}
+  - { name: "{{ project.prefix }}_qa",      id: "", present: true}
+  - { name: "grafana_admins",               id: "", present: true}
+  - { name: "grafana_editors",              id: "", present: true}
+  - { name: "grafana_users",                id: "", present: true}
+  - { name: "jenkins_admins",               id: "", present: true}
+  - { name: "jenkins_editors",              id: "", present: true}
+  - { name: "jenkins_users",                id: "", present: true}
+  - { name: "nexus_admins",                 id: "", present: true}
+  - { name: "nexus_editors",                id: "", present: true}
+  - { name: "nexus_users",                  id: "", present: true}
+  - { name: "rancher_admins",               id: "", present: true}
+  - { name: "rancher_editors",              id: "", present: true}
+  - { name: "rancher_users",                id: "", present: true}
+  - { name: "sentry_admins",                id: "", present: true}
+  - { name: "sentry_editors",               id: "", present: true}
+  - { name: "sentry_users",                 id: "", present: true}
+  - { name: "powerdns_admins",              id: "", present: true}
+  - { name: "powerdns_editors",             id: "", present: true}
+  - { name: "powerdns_users",               id: "", present: true}
+  - { name: "graylog_admins",               id: "", present: true}
+  - { name: "graylog_editors",              id: "", present: true}
+  - { name: "graylog_users",                id: "", present: true}
+
+ipausers:
+  - { name: "s.smith",    first: "Sergii",      last: "Smith",    groups: [ devops, grafana_admins, jenkins_admins, rancher_admins, graylog_admins, powerdns_admins], present: true }
+  - { name: "a.ivanov",   first: "Aleks",       last: "Ivanov",   groups: ["{{ project.prefix }}_back"],  present: true }
+  - { name: "d.petrov",   first: "Dmytro",      last: "Petrov",   groups: ["{{ project.prefix }}_front"], present: true }
+  - { name: "m.sidorov",  first: "Maks",        last: "Sidorov",  groups: ["{{ project.prefix }}_qa"],    present: true }
+  - { name: "jenkins",    first: "Integration", last: "User",     groups: [integrations], present: true }
+  - { name: "gitlab",     first: "Integration", last: "User",     groups: [integrations], present: true }
+  - { name: "nexus",      first: "Integration", last: "User",     groups: [integrations], present: true }
+  - { name: "rancher",    first: "Integration", last: "User",     groups: [integrations], present: true }
+  - { name: "grafana",    first: "Integration", last: "User",     groups: [integrations], present: true }
+  - { name: "sentry",     first: "Integration", last: "User",     groups: [integrations], present: true }
+  - { name: "powerdns",   first: "Integration", last: "User",     groups: [integrations], present: true }
+  - { name: "graylog",    first: "Integration", last: "User",     groups: [integrations], present: true }
+
+ipa:
+  admin:
+    user: "admin"
+    pass: "" 
+
+project:
+  prefix: "hm"
+  domain: "hm.loc"

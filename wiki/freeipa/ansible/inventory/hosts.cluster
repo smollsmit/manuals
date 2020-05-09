@@ -1,0 +1,49 @@
+
+# ---------- IPA Servers
+[ipaserver]
+hm01ipa11i.hm.loc       ansible_host=192.168.1.231
+
+[ipaserver:vars]
+
+
+# ---------- IPA Replicas
+[ipareplicas]
+hm01ipa12i.hm.loc       ansible_host=192.168.1.232      ipareplica_servers=hm01ipa11i.hm.loc
+
+[ipareplicas:vars]
+ipaclient_force_join=yes
+ipareplica_setup_ca=yes
+ipareplica_setup_dns=yes
+ipareplica_forwarders="192.168.1.1,1.1.1.1"
+
+
+# ---------- IPA Clients
+[ipaclients]
+hm01ipa11i.hm.loc       ansible_host=192.168.1.231  
+hm01ipa12i.hm.loc       ansible_host=192.168.1.232
+
+[ipaclients:vars]
+#ipaclient_use_otp=yes
+ipaclient_allow_repair=yes
+ipaclient_domain=hm.loc
+ipaclient_realm=HM.LOC
+ipaclient_servers=hm01ipa11i.hm.loc
+
+
+# ---------- IPA Cluster
+[ipacluster:children]
+ipaserver
+ipareplicas
+ipaclients
+
+[ipacluster:vars]
+ipaadmin_password=
+ipadm_password=
+ipaserver_setup_dns=yes
+ipaserver_forwarders="192.168.1.1,1.1.1.1"
+ipaserver_no_dnssec_validation=yes
+ipaserver_domain=hm.loc
+ipaserver_realm=HM.LOC
+ansible_ssh_user=automation
+ansible_ssh_private_key_file=~/.ssh/id_rsa
+ansible_python_interpreter=/usr/bin/python3

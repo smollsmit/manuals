@@ -1,0 +1,5 @@
+
+- name: Create group "{{ item.name }}" 
+  ipagroup:
+    ipaadmin_password: "{{ ipa.admin.pass }}" 
+    name: "{{ item.name }}"
