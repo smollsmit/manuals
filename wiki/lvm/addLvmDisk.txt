@@ -1,0 +1,5 @@
+pvcreate /dev/sdb
+vgextend ubuntu-vg /dev/sdb
+lvm lvextend -r -L +30G /dev/ubuntu-vg/lv_var
+df -h
+vgs
